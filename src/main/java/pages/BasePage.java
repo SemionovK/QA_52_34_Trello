@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -23,6 +24,21 @@ public abstract class BasePage {
         } catch (RuntimeException e) {
             e.printStackTrace();
             System.out.println("created exeption");
+        }
+        return false;
+    }
+
+    public void clickWait(WebElement element){
+        new WebDriverWait(driver, Duration.ofSeconds(12))
+                .until(ExpectedConditions.elementToBeClickable(element)).click();
+    }
+
+    public boolean isUrlContainsText(String text) {
+        try {
+            return new WebDriverWait(driver, Duration.ofSeconds(5))
+                    .until(ExpectedConditions.urlContains(text));
+        } catch (RuntimeException e) {
+            e.printStackTrace();
         }
         return false;
     }

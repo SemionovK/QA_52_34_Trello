@@ -1,10 +1,12 @@
 package pages;
 
+import dto.User;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
+
 
 public class LoginPage extends BasePage{
     public LoginPage(WebDriver driver){
@@ -20,5 +22,13 @@ public class LoginPage extends BasePage{
     WebElement inputPassword;
     @FindBy(id = "login-submit")
     WebElement btnLogin;
+
+    public void typeLoginForm(User user){
+        inputEmail.sendKeys(user.getEmail());
+        btnContinue.click();
+        clickWait(inputPassword);
+        inputPassword.sendKeys(user.getPassword());
+        btnLogin.click();
+    }
 
 }
