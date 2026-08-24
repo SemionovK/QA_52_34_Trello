@@ -1,9 +1,6 @@
 package pages;
 
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -29,7 +26,7 @@ public abstract class BasePage {
     }
 
     public void clickWait(WebElement element){
-        new WebDriverWait(driver, Duration.ofSeconds(12))
+        new WebDriverWait(driver, Duration.ofSeconds(25))
                 .until(ExpectedConditions.elementToBeClickable(element)).click();
     }
 

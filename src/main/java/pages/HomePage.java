@@ -15,7 +15,7 @@ public class HomePage extends BasePage{
 
     }
 
-    @FindBy(xpath = "//a[@href='https://id.atlassian.com/login?application=trello--direct-signup&continue=https%3A%2F%2Ftrello.com%2Fauth%2Fatlassian%2Fcallback']")
+    @FindBy(xpath = "//a[@href='https://id.atlassian.com/login?application=trello--direct-signup&continue=https%3A%2F%2Ftrello.com%2Fauth%2Fatlassian%2Fcallback&anonId=4a18e1ce-fe03-4037-8774-aab78a4b5a27']")
     WebElement btnLogin;
 
     public void clickBtnLogin(){
