@@ -15,10 +15,10 @@ public class HomePage extends BasePage{
 
     }
 
-    @FindBy(xpath = "//a[@href='https://id.atlassian.com/login?application=trello--direct-signup&continue=https%3A%2F%2Ftrello.com%2Fauth%2Fatlassian%2Fcallback&anonId=4a18e1ce-fe03-4037-8774-aab78a4b5a27']")
+    @FindBy(xpath = "//a[@href='https://id.atlassian.com/login?application=trello--direct-signup&continue=https%3A%2F%2Ftrello.com%2Fauth%2Fatlassian%2Fcallback&anonId=d2c41039-ef7a-431b-96b2-9a90e2c1b72e']")
     WebElement btnLogin;
 
     public void clickBtnLogin(){
-        btnLogin.click();
+        clickWait(btnLogin);
     }
 }
