@@ -54,6 +54,8 @@ public class BoardsPage extends BasePage{
         clickWait(btnCreate);
     }
 
+
+    //to disable js  Shift+ctrl+p !!!!
     public boolean validatePopUpMessageBoardDeleted(String text){
         return isTextInElementPresent(popUpMsgBoardDeleted, text);
     }

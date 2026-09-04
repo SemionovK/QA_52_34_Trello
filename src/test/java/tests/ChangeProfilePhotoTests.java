@@ -2,6 +2,7 @@ package tests;
 
 import dto.User;
 import manager.AppManager;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.AtlassianPage;
@@ -30,11 +31,25 @@ public class ChangeProfilePhotoTests extends AppManager {
     }
 
     @Test
-    public void changeProfilePhotoTest(){
+    public void changeProfilePhotoPositiveTest(){
         boardsPage.openMyAccount();
         List<String> tabs = new ArrayList<>(getDriver().getWindowHandles());
         System.out.println(tabs);
         getDriver().switchTo().window(tabs.get(1));
-        new AtlassianPage(getDriver()).changeProfilePhoto();
+        AtlassianPage atlassianPage = new AtlassianPage(getDriver());
+        atlassianPage.changeProfilePhoto("src/main/resources/zebra.jpg");
+        atlassianPage.clickBtnUpload();
+        Assert.assertTrue(atlassianPage.validatePopUpMessage("Avatar added"));
+    }
+
+    @Test
+    public void changeProfilePhotoNegativeWrongFormatFileTest(){
+        boardsPage.openMyAccount();
+        List<String> tabs = new ArrayList<>(getDriver().getWindowHandles());
+        System.out.println(tabs);
+        getDriver().switchTo().window(tabs.get(1));
+        AtlassianPage atlassianPage = new AtlassianPage(getDriver());
+        atlassianPage.changeProfilePhoto("src/test/resources/wrong_email_password.csv");
+        Assert.assertTrue(atlassianPage.validatePopUpWrongFormat("Could not load image, the format is invalid."));
     }
 }
